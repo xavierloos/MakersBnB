@@ -1,7 +1,7 @@
 require "sinatra/base"
 
-class MakersBnB < Sinatra::Base
+class AbodenB < Sinatra::Base
   get "/" do
-    " welcome"
+    "Welcome"
   end
 end
