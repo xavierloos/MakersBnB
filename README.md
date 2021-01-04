@@ -94,3 +94,19 @@ As a user
 So that I can get in on the game
 I can make a request for a day with a 'pending' request
 ```
+
+## Database Tables
+### Users
+| id (serial primary key) | email (varchar)  | password (varchar)   | username (varchar)  |
+| ----------------------- | ---------------- | -------------------- | ------------------- |
+| 1                       | test@gmail.com.  | secretword           | best_user           |
+
+### listings
+| id (serial primary key) | title (varchar)  | description (varchar) | price per night    | foreign key user_id   |
+| ----------------------- | ---------------- | --------------------  | ------------------- | --------------------- |
+| 1                       | lovely house     | sample description    | 100                 | 1                     |
+
+### bookings
+| id (serial primary key) | foreign key listing_id   | foreign key user_id   | date       |
+| ----------------------- | ------------------------ | --------------------  | -----------|
+| 1                       | 1                        | 2                     | 10/01/2020 |
