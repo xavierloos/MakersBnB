@@ -1,5 +1,5 @@
 require "sinatra/base"
-
+require "pg"
 class AbodenB < Sinatra::Base
   get "/" do
     "Welcome"
