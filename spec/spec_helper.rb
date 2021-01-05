@@ -1,13 +1,14 @@
 ENV["RACK_ENV"] = "test"
 
+require 'setup_test_database'
+
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 
 require "capybara"
 require "capybara/rspec"
 require "rspec"
-require "simplecov"
-require "simplecov-console"
-# require "features/web_helpers"
+
+require "features/web_helper"
 
 Capybara.app = AbodenB
 
@@ -27,6 +28,9 @@ Capybara.app = AbodenB
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
