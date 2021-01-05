@@ -1,7 +1,7 @@
 require 'listing.rb'
 
 describe Listing do
-  
+
   describe 'self.create' do
     it 'adds a listing to the database' do
       conn = PG.connect(dbname: 'abodenb_test')
