@@ -1,1 +1,10 @@
-<%= Listing.all %>
+<ul>
+  <% @listings.each do |listing| %>
+    <li>
+      <%= listing.id %> <br>
+      <%= listing.title%> <br>
+      <%= listing.description%> <br>
+      <%= listing.price%> <br>
+    </li>
+  <% end %>
+</ul>

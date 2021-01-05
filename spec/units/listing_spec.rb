@@ -5,23 +5,28 @@ describe Listing do
   describe 'self.create' do
     it 'adds a listing to the database' do
       conn = PG.connect(dbname: 'abodenb_test')
-      Listing.create('testtitle')
+      Listing.create(title: 'testtitle', description: 'test description', price: '100')
       result = conn.exec("SELECT title FROM listings;")
       expect(result[0]['title']).to eq 'testtitle'
     end
   end
 
   describe 'self.all' do
-    it 'returns an array of all listings in the database' do
+    it 'returns an array of listing objects of all listings in the database' do
       conn = PG.connect(dbname: 'abodenb_test')
       conn.exec("INSERT INTO listings (title) VALUES ('testtitle');")
-      expect(Listing.all).to eq ['testtitle']
+      conn.exec("INSERT INTO listings (title) VALUES ('testtitle2');")
+      expect(Listing.all.first).to be_kind_of(Listing)
+      expect(Listing.all.last).to be_kind_of(Listing)
+      expect(Listing.all.length).to eq 2
+      expect(Listing.all.first.title).to eq 'testtitle'
+      expect(Listing.all.last.title).to eq 'testtitle2'
     end
   end
 
   describe '#title' do
     it 'returns the title of the listing' do
-      pg_instance_returned = Listing.create('testtitle')
+      pg_instance_returned = Listing.create(title: 'testtitle', description: 'test description', price: '100')
       expect(pg_instance_returned.title).to eq 'testtitle'
     end
   end

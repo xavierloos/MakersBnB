@@ -30,11 +30,14 @@ class AbodenB < Sinatra::Base
 
   post "/listings/new" do
     @title = params['title']
-    Listing.create(@title)
+    @description = params['description']
+    @price = params['price']
+    Listing.create(title: @title, description: @description, price: @price)
     redirect "/listings"
   end
 
   get "/listings" do
+    @listings = Listing.all
     erb :listings
   end
 
