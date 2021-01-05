@@ -1,5 +1,7 @@
 require "sinatra/base"
+require "./lib/user"
 require "pg"
+
 class AbodenB < Sinatra::Base
   get "/" do
     "Welcome"
@@ -8,6 +10,7 @@ class AbodenB < Sinatra::Base
     erb :signup
   end
   post "/signup" do
+    User.create(username: params[:username], email: params[:email], password: params[:password])
     redirect "/profile"
   end
   get "/profile" do
