@@ -3,4 +3,5 @@ feature "Home page" do
     visit "/"
     expect(page).to have_content "Welcome"
   end
+  
 end
