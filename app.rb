@@ -14,13 +14,15 @@ class AbodenB < Sinatra::Base
   get "/signup" do
     erb :signup
   end
+
   post "/signup" do
     User.create(username: params[:username], email: params[:email], password: params[:password])
     redirect "/profile"
   end
+
   get "/profile" do
     erb :profile
-
+  end
 
   get "/listings/new" do
     erb :listings_new
@@ -34,6 +36,6 @@ class AbodenB < Sinatra::Base
 
   get "/listings" do
     erb :listings
-
   end
+
 end
