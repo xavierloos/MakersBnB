@@ -12,4 +12,11 @@ RSpec.describe User do
       expect(user.id).to eq persisted_data[0]["id"]
     end
   end
+  describe ".authentificate" do
+    it "checks the user exists" do
+      # user = User.create(username: "test_user", email: "test@test.com", password: "test_password")
+      auth = User.authentificate(email: "test@test.com", password: "test_password")
+      expect(auth.email).to eq "test@test.com"
+    end
+  end
 end
