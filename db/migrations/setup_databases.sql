@@ -1,0 +1,6 @@
+CREATE DATABASE abodenb;
+CREATE TABLE listings(id SERIAL PRIMARY KEY, title VARCHAR(60));
+
+
+CREATE DATABASE abodenb_test;
+CREATE TABLE listings(id SERIAL PRIMARY KEY, title VARCHAR(60));
