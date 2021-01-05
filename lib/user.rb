@@ -16,16 +16,15 @@ class User
     User.new(username: result[0]["username"], email: result[0]["email"], id: result[0]["id"], password: result[0]["password"])
   end
   def self.authentificate(email:, password:)
-    #   connection = PG.connect(dbname: "abodenb")
-    #   result = connection.exec("SELECT * FROM users WHERE email = '#{email}';")
-    #   User.new(username: result[0]["username"], email: result[0]["email"], id: result[0]["id"], password: result[0]["password"])
     pg = PG.connect(dbname: "abodenb")
-    result = pg.exec("SELECT * FROM users WHERE email = '#{email}'")
-    user = User.new(
+    result = pg.exec("SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}';")
+    return unless result.any?
+    User.new(
       id: result[0]["id"],
       username: result[0]["username"],
       email: result[0]["email"],
       password: result[0]["password"],
     )
   end
+
 end

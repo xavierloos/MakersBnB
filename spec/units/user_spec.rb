@@ -14,8 +14,9 @@ RSpec.describe User do
   end
   describe ".authentificate" do
     it "checks the user exists" do
-      # user = User.create(username: "test_user", email: "test@test.com", password: "test_password")
+      User.create(username: "test_user", email: "test@test.com", password: "test_password")
       auth = User.authentificate(email: "test@test.com", password: "test_password")
+      p auth
       expect(auth.email).to eq "test@test.com"
     end
   end

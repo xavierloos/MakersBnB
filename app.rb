@@ -1,12 +1,15 @@
 require "sinatra/base"
-
+require 'sinatra/flash'
 require "./lib/user"
 require "pg"
 
 require_relative "./lib/listing.rb"
 
 class AbodenB < Sinatra::Base
+
   enable :session
+  register Sinatra::Flash
+
   get "/" do
     "Welcome"
   end
@@ -26,17 +29,13 @@ class AbodenB < Sinatra::Base
   end
 
   post "/login" do
-    # pg = PG.connect(dbname: "abodenb")
-    # result = pg.exec("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    # user = User.new(
-    #   id: result[0]["id"],
-    #   username: result[0]["username"],
-    #   email: result[0]["email"],
-    #   password: result[0]["password"],
-    # )
     user = User.authentificate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect "/profile"
+    if user
+      session[:user_id] = user.id
+      redirect "/profile"
+    else
+      flash[:login_error] = "Please check your email or password"
+    end
   end
 
   get "/listings/new" do

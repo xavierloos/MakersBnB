@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] = "test"
 
 require "setup_test_database"
+require "../db_test_connection_helper"
 
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 
