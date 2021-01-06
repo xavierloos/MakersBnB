@@ -17,14 +17,7 @@ feature "new listing" do
   end
 
   scenario "can add available dates" do
-    visit('/listings/new')
-    fill_in('title', with: 'testtitle')
-    fill_in('description', with: 'test description')
-    fill_in('price', with: '100')
-    select '01', from: 'day'
-    select 'January', from: 'month'
-    select '2021', from: 'year'
-    click_button('Submit')
+    add_listing1
     click_link('testtitle')
     expect(page).to have_content 'testtitle'
     expect(page).to have_content '01/01/2021'

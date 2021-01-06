@@ -46,7 +46,8 @@ class AbodenB < Sinatra::Base
   end
 
   post "/listings/new" do
-    Listing.create(title: params['title'], description: params['description'], price: params['price'])
+    @available_night = "#{params['year']}#{params['month']}#{params['day']}"
+    Listing.create(title: params['title'], description: params['description'], price: params['price'], available_night: @available_night)
     redirect "/listings"
   end
 
@@ -56,6 +57,7 @@ class AbodenB < Sinatra::Base
   end
 
   get "/listings/view/:id" do
+    p params[:id]
     @listing = Listing.find(id: params[:id])
     erb :listings_view
     # "#{@listing.title}"

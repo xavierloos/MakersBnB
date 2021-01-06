@@ -5,6 +5,7 @@
     <title> <%= @listing.title %> </title>
 </head>
 <body>
-  <h1> <%= @listing.title %> </h1>
+  <h1> <%= @listing.title %> </h1><br>
+  <h1> <%= Date.parse(@listing.available_night).strftime("%m/%d/%Y") %> </h1>
 </body>
 </html>
