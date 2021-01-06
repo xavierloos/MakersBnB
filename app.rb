@@ -37,7 +37,8 @@ class AbodenB < Sinatra::Base
   end
 
   get "/profile" do
-    @user = User.find(id: session[:user_id])
+    redirect "/login" if session[:user_id] == nil
+    @user = User.find(id: session[:user_id]) 
     erb :profile
   end
 
@@ -55,5 +56,9 @@ class AbodenB < Sinatra::Base
   get "/listings" do
     @listings = Listing.all
     erb :listings
+  end
+  post "/logout" do
+    session.clear
+    redirect "/"
   end
 end
