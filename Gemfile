@@ -11,6 +11,11 @@ gem "capybara"
 gem "rack"
 gem "pg"
 gem "rspec"
+
 gem "simplecov"
 gem "simplecov-console"
 gem "sinatra-flash"
+
+gem "simplecov", require: false
+gem "simplecov-console", require: false
+
