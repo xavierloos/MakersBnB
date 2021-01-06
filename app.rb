@@ -19,12 +19,7 @@ class AbodenB < Sinatra::Base
 
   post "/signup" do
     User.create(username: params[:username], email: params[:email], password: params[:password])
-    redirect "/profile"
-  end
-
-  get "/profile" do
-    @user = User.find(id: 300)
-    erb :profile
+    redirect "/login"
   end
 
   get "/login" do
@@ -39,6 +34,11 @@ class AbodenB < Sinatra::Base
     else
       flash[:login_error] = "Please check your email or password"
     end
+  end
+
+  get "/profile" do
+    @user = User.find(id: session[:user_id])
+    erb :profile
   end
 
   get "/listings/new" do

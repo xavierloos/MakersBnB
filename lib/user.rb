@@ -1,5 +1,5 @@
 require "pg"
-require "db_test_connection_helper"
+require_relative './db_test_connection_helper.rb'
 
 class User
   attr_reader :username, :email, :password, :id

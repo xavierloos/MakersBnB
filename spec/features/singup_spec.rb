@@ -9,6 +9,6 @@ feature "Signup page" do
     fill_in "email", with: "test@test.com"
     fill_in "password", with: "test"
     click_button "Register"
-    expect(page).to have_content "Welcome"
+    expect(page).to have_content "Login"
   end
 end
