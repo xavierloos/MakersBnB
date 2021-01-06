@@ -25,6 +25,7 @@ feature "new listing" do
     select 'January', from: 'month'
     select '2021', from: 'year'
     click_button('Submit')
+    click_link('testtitle')
     expect(page).to have_content '01/01/2021'
     expect(page).not_to have_content 'sinatra'
   end
