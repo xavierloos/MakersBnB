@@ -6,8 +6,10 @@ describe Listing do
     it 'adds a listing to the database' do
       conn = PG.connect(dbname: 'abodenb_test')
       Listing.create(title: 'testtitle', description: 'test description', price: '100')
-      result = conn.exec("SELECT title FROM listings;")
+      result = conn.exec("SELECT * FROM listings;")
       expect(result[0]['title']).to eq 'testtitle'
+      expect(result[0]['description']).to eq 'test description'
+      expect(result[0]['price']).to eq '100'
     end
   end
 
@@ -26,8 +28,15 @@ describe Listing do
 
   describe '#title' do
     it 'returns the title of the listing' do
-      pg_instance_returned = Listing.create(title: 'testtitle', description: 'test description', price: '100')
+      pg_instance_returned = Listing.create(title: 'testtitle', description: 'test description', price: 100)
       expect(pg_instance_returned.title).to eq 'testtitle'
+    end
+  end
+
+  describe '#price' do
+    it 'returns the price of the listing' do
+      pg_instance_returned = Listing.create(title: 'testtitle', description: 'test description', price: 100)
+      expect(pg_instance_returned.price).to eq 100
     end
   end
 
