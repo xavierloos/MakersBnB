@@ -15,4 +15,16 @@ class User
     result = connection.exec("INSERT INTO users (username, email, password) VALUES ('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;")
     User.new(username: result[0]["username"], email: result[0]["email"], id: result[0]["id"], password: result[0]["password"])
   end
+  def self.authentificate(email:, password:)
+    pg = PG.connect(dbname: "abodenb")
+    result = pg.exec("SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}';")
+    return unless result.any?
+    User.new(
+      id: result[0]["id"],
+      username: result[0]["username"],
+      email: result[0]["email"],
+      password: result[0]["password"],
+    )
+  end
+
 end
