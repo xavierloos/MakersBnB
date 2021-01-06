@@ -11,5 +11,5 @@ gem "capybara"
 gem "rack"
 gem "pg"
 gem "rspec"
-gem "simplecov"
-gem "simplecov-console"
+gem "simplecov", require: false
+gem "simplecov-console", require: false

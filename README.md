@@ -12,6 +12,9 @@ Any signed-up user can request to hire any space for one night, and this should 
 Nights for which a space has already been booked should not be available for users to book that space.
 Until a user has confirmed a booking request, that space can still be booked for that night.
 
+##  Set Up Databases
+Connect to psql and CREATE DATABASE abodenb. Input commands in setup_databases.sql to create table. CREATE DATABASE abodenb_test and input the commands again.
+
 ## User Stories
 
 ```
