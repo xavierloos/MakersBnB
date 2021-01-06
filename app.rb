@@ -46,12 +46,7 @@ class AbodenB < Sinatra::Base
   end
 
   post "/listings/new" do
-
-    @title = params["title"]
-    Listing.create(@title)
-
     Listing.create(title: params['title'], description: params['description'], price: params['price'])
-
     redirect "/listings"
   end
 

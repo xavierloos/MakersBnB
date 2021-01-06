@@ -1,70 +1,24 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/index_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/new_listing_spec.rb": {
         "lines": [
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/singup_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/units/listing_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
           1,
@@ -77,56 +31,13 @@
           1,
           1,
           1,
+          0,
           null,
           null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/user_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/db_helpers.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
           null
         ]
       }
     },
-    "timestamp": 1609932073
+    "timestamp": 1609944810
   }
 }
