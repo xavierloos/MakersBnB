@@ -55,4 +55,10 @@ class AbodenB < Sinatra::Base
     erb :listings
   end
 
+  get "/listings/view/:id" do
+    @listing = Listing.find(id: params[:id])
+    erb :listings_view
+    # "#{@listing.title}"
+  end
+
 end

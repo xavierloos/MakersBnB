@@ -24,4 +24,10 @@ class Listing
     result.map { |listing| Listing.new(id: listing['id'], title: listing['title'], description: listing['description'], price: listing['price'].to_i) }
   end
 
+  def self.find(id:)
+    conn = connect_to_database
+    result = conn.exec("SELECT * FROM listings WHERE id = '#{id}';")
+    Listing.new(title: result[0]['title'], description: result[0]['description'], price: result[0]['price'], id: result[0]['id'])
+  end
+
 end
