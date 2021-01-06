@@ -6,11 +6,11 @@
 </head>
 <body>
     <h1>Login</h1>
-    <% if flash[:email_error]  %> 
-    <div class="alert alert-danger"> 
-      <%= flash[:email_error] %> 
-    </div> 
-    <% end %> 
+    <% if flash[:email_error]  %>
+    <div class="alert alert-danger">
+      <%= flash[:email_error] %>
+    </div>
+    <% end %>
     <form action="/login" method="post">
         <input type="email" name="email" />
         <input type="password" name="password" />

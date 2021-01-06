@@ -13,11 +13,16 @@ RSpec.describe User do
     end
   end
   describe ".authentificate" do
-    it "checks the user exists" do
+    before do
       User.create(username: "test_user", email: "test@test.com", password: "test_password")
+    end
+    it "checks the user exists" do
       auth = User.authentificate(email: "test@test.com", password: "test_password")
-      p auth
+      expect(auth.username).to eq "test_user"
       expect(auth.email).to eq "test@test.com"
+    end
+    it "checks the user is nil" do
+      expect(User.authentificate(email: "t@test.com", password: "test_password")).to be_nil
     end
   end
 end

@@ -1,12 +1,11 @@
 require "sinatra/base"
-require 'sinatra/flash'
+require "sinatra/flash"
 require "./lib/user"
 require "pg"
 
 require_relative "./lib/listing.rb"
 
 class AbodenB < Sinatra::Base
-
   enable :session
   register Sinatra::Flash
 
