@@ -3,5 +3,5 @@ require 'pg'
 def setup_test_database
   p "Setting up test database..."
   conn = PG.connect(dbname: 'abodenb_test')
-  conn.exec("TRUNCATE listings, users")
+  conn.exec("TRUNCATE listings, users, available_nights")
 end
