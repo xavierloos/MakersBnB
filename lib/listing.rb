@@ -23,7 +23,6 @@ class Listing
   def self.all
     conn = connect_to_database
     result = conn.exec("SELECT * FROM listings JOIN available_nights ON listings.id=available_nights.listing_id")
-    p result[0]['listing_id']
     result.map { |listing| Listing.new(id: listing['listing_id'], title: listing['title'], description: listing['description'], price: listing['price'].to_i, available_night: listing['date']) }
   end
 
