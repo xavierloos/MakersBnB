@@ -75,6 +75,10 @@ class AbodenB < Sinatra::Base
     erb :listings
   end
 
+  get "/booking" do
+    erb(:booking)
+  end
+
   get "/listings/view/:id" do
     @listing = Listing.find(id: params[:id])
     erb :listings_view
@@ -83,4 +87,5 @@ class AbodenB < Sinatra::Base
   def check_login
     redirect "/login" if session[:user_id] == nil #check if there is an user
   end
+  
 end
