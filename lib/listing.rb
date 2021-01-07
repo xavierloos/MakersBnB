@@ -31,10 +31,30 @@ class Listing
     Listing.new(title: result[0]['title'], description: result[0]['description'], price: result[0]['price'], id: result[0]['id'])
   end
 
-  def add_availability(date:)
+  def available_nights
     conn = connect_to_database
-    result = conn.exec("INSERT INTO dates (date) VALUES ('#{Date.parse(date).strftime("%Y%m%d").to_i}') RETURNING id")
+    nights = conn.exec("SELECT * FROM dates JOIN bookable_dates ON dates.id = bookable_dates.date_id WHERE bookable_dates.listing_id = '#{self.id}'")
+    nights.map { |night| night['date'] }
+  end
+
+  def add_availability(date:)
+    add_date(date) unless date_exists?(date)
+    conn = connect_to_database
+    result = conn.exec("SELECT id FROM dates WHERE date = '#{Date.parse(date).strftime("%Y%m%d").to_i}'")
     conn.exec("INSERT INTO bookable_dates (listing_id, date_id) VALUES ('#{self.id}', '#{result[0]['id']}')")
+  end
+
+  private
+
+  def add_date(date)
+    conn = connect_to_database
+    result = conn.exec("INSERT INTO dates (date) VALUES ('#{Date.parse(date).strftime("%Y%m%d").to_i}')")
+  end
+
+  def date_exists?(date)
+    conn = connect_to_database
+    check = conn.exec("SELECT * FROM dates WHERE date = '#{Date.parse(date).strftime("%Y%m%d").to_i}';")
+    check.any?
   end
 
 end

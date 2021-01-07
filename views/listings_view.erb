@@ -6,6 +6,12 @@
 </head>
 <body>
   <h1> <%= @listing.title %> </h1><br>
-  <!-- <h1> <%= Date.parse(@listing.available_night).strftime("%m/%d/%Y") %> </h1> -->
+  <ul>
+    <% @listing.available_nights.each do |night| %>
+    <li>
+      <%= Date.parse(night).strftime("%m/%d/%Y") %>
+    </li>
+    <% end %>
+  </ul>
 </body>
 </html>
