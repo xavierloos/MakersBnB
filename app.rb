@@ -63,4 +63,9 @@ class AbodenB < Sinatra::Base
     @listings = Listing.all
     erb :listings
   end
+
+  get "/booking" do
+    erb(:booking)
+  end
+
 end

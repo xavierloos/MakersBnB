@@ -1,10 +1,13 @@
 <ul>
   <% @listings.each do |listing| %>
-    <li>
+    <li id="<%= listing.id %>">
       <%= listing.id %> <br>
       <%= listing.title%> <br>
       <%= listing.description%> <br>
       <%= listing.price%> <br>
+      <form action="/booking" method="get">
+        <input type="submit" value="Request to book"/>
+      </form>
     </li>
   <% end %>
 </ul>
