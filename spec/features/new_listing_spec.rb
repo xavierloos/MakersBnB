@@ -1,6 +1,7 @@
 feature "new listing" do
 
   scenario "adding a new listing that is then visible" do
+    login
     add_listing1
     click_button("Finish")
     expect(page).to have_content 'testtitle'
@@ -10,6 +11,7 @@ feature "new listing" do
   end
 
   scenario "can add multiple listings" do
+    login
     add_listing1
     click_button("Finish")
     add_listing2
