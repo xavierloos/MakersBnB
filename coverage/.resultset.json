@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/index_spec.rb": {
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/features/index_spec.rb": {
         "lines": [
           1,
           1,
@@ -12,7 +12,7 @@
           null
         ]
       },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/login_spec.rb": {
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/features/login_spec.rb": {
         "lines": [
           1,
           1,
@@ -33,55 +33,6 @@
           1,
           1,
           null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/new_listing_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/features/singup_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
           null,
           1,
           1,
@@ -94,7 +45,64 @@
           null
         ]
       },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/units/listing_spec.rb": {
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/features/new_listing_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/features/singup_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/units/listing_spec.rb": {
         "lines": [
           1,
           null,
@@ -110,11 +118,11 @@
           1,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -149,7 +157,7 @@
           null
         ]
       },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/units/user_spec.rb": {
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/units/user_spec.rb": {
         "lines": [
           1,
           1,
@@ -181,7 +189,7 @@
           null
         ]
       },
-      "/Users/olivernorman/Makers/Projects/MakersBnB/spec/db_helpers.rb": {
+      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/db_helpers.rb": {
         "lines": [
           1,
           null,
@@ -192,6 +200,6 @@
         ]
       }
     },
-    "timestamp": 1609955401
+    "timestamp": 1610022568
   }
 }

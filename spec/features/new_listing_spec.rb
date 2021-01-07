@@ -2,6 +2,7 @@ feature "new listing" do
 
   scenario "adding a new listing that is then visible" do
     add_listing1
+    click_button("Done")
     expect(page).to have_content 'testtitle'
     expect(page).to have_content 'test description'
     expect(page).to have_content '100'
@@ -10,7 +11,9 @@ feature "new listing" do
 
   scenario "can add multiple listings" do
     add_listing1
+    click_button("Done")
     add_listing2
+    click_button("Done")
     expect(page).to have_content 'testtitle'
     expect(page).to have_content 'testtitle2'
     expect(page).not_to have_content 'sinatra'
@@ -18,7 +21,12 @@ feature "new listing" do
 
   scenario "can add available dates" do
     add_listing1
-    click_link('testtitle')
+    select '01', from: 'day'
+    select 'January', from: 'month'
+    select '2021', from: 'year'
+    click_button('Add date')
+    click_button("Done")
+    click_link("testtitle")
     expect(page).to have_content 'testtitle'
     expect(page).to have_content '01/01/2021'
     expect(page).not_to have_content 'sinatra'

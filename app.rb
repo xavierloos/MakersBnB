@@ -47,8 +47,13 @@ class AbodenB < Sinatra::Base
 
   post "/listings/new" do
     @available_night = "#{params['year']}#{params['month']}#{params['day']}"
-    Listing.create(title: params['title'], description: params['description'], price: params['price'], available_night: @available_night)
-    redirect "/listings"
+    new_listing = Listing.create(title: params['title'], description: params['description'], price: params['price'])
+    redirect "/listings/availability/#{new_listing.id}"
+  end
+
+  get "/listings/availability/:id" do
+    @listing = Listing.find(id: params[:id])
+    erb :listings_availability
   end
 
   get "/listings" do
