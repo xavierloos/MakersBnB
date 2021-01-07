@@ -54,10 +54,19 @@ class AbodenB < Sinatra::Base
   end
 
   post "/listings/new" do
-    @title = params["title"]
-    Listing.create(title: params["title"], description: params["description"], price: params["price"])
+    new_listing = Listing.create(title: params['title'], description: params['description'], price: params['price'])
+    redirect "/listings/availability/#{new_listing.id}"
+  end
 
-    redirect "/listings"
+  get "/listings/availability/:id" do
+    @listing = Listing.find(id: params[:id])
+    erb :listings_availability
+  end
+
+  post "/listings/availability/:id" do
+    @listing = Listing.find(id: params[:id])
+    @listing.add_availability(date: params[:available_night])
+    redirect "/listings/availability/#{@listing.id}"
   end
 
   get "/listings" do
@@ -66,6 +75,11 @@ class AbodenB < Sinatra::Base
     erb :listings
   end
 
+  get "/listings/view/:id" do
+    @listing = Listing.find(id: params[:id])
+    erb :listings_view
+  end
+  
   def check_login
     redirect "/login" if session[:user_id] == nil #check if there is an user
   end

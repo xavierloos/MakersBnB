@@ -1,0 +1,1 @@
+CREATE TABLE dates (id SERIAL PRIMARY KEY, date DATE);
