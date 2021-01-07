@@ -6,7 +6,7 @@ require "pg"
 require_relative "./lib/listing.rb"
 
 class AbodenB < Sinatra::Base
-  enable :session
+  enable :sessions
   register Sinatra::Flash
 
   get "/" do
@@ -19,11 +19,7 @@ class AbodenB < Sinatra::Base
 
   post "/signup" do
     User.create(username: params[:username], email: params[:email], password: params[:password])
-    redirect "/profile"
-  end
-
-  get "/profile" do
-    erb :profile
+    redirect "/login"
   end
 
   get "/login" do
@@ -37,20 +33,28 @@ class AbodenB < Sinatra::Base
       redirect "/profile"
     else
       flash[:login_error] = "Please check your email or password"
+      redirect "/login"
     end
   end
 
+  post "/logout" do
+    session.clear
+    redirect "/login"
+  end
+
+  get "/profile" do
+    redirect "/login" if session[:user_id] == nil
+    @user = User.find(id: session[:user_id])
+    erb :profile
+  end
 
   get "/listings/new" do
     erb :listings_new
   end
 
   post "/listings/new" do
-
     @title = params["title"]
-    Listing.create(@title)
-
-    Listing.create(title: params['title'], description: params['description'], price: params['price'])
+    Listing.create(title: params["title"], description: params["description"], price: params["price"])
 
     redirect "/listings"
   end
@@ -59,5 +63,4 @@ class AbodenB < Sinatra::Base
     @listings = Listing.all
     erb :listings
   end
-
 end

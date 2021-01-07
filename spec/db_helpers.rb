@@ -1,6 +1,7 @@
 require "pg"
+require "./lib/db_test_connection_helper"
 
 def persistent_data(table:, id:)
-  connection = PG.connect(dbname: "abodenb")
+  connection = connect_to_database
   connection.exec("SELECT * FROM #{table} WHERE id = #{id};")
 end

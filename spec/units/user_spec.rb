@@ -1,5 +1,6 @@
 require "user"
 require "db_helpers"
+
 RSpec.describe User do
   describe ".create" do
     it "creates a new user" do
@@ -23,6 +24,13 @@ RSpec.describe User do
     end
     it "checks the user is nil" do
       expect(User.authentificate(email: "t@test.com", password: "test_password")).to be_nil
+    end
+  end
+  describe ".find" do
+    it "extracts the user information from the id" do
+      result = User.create(username: "test_user", email: "test@test.com", password: "test_password")
+      userdata = User.find(id: result.id)
+      expect(userdata.id).to eq result.id
     end
   end
 end
