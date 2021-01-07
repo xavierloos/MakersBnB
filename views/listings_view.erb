@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= @listing.title %> </title>
+</head>
+<body>
+  <h1> <%= @listing.title %> </h1><br>
+  <ul>
+    <% @listing.available_nights.each do |night| %>
+    <li>
+      <%= Date.parse(night).strftime("%m/%d/%Y") %>
+    </li>
+    <% end %>
+  </ul>
+</body>
+</html>
