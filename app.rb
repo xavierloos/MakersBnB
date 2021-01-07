@@ -58,22 +58,18 @@ class AbodenB < Sinatra::Base
 
   post "/listings/availability/:id" do
     @listing = Listing.find(id: params[:id])
-    p params
     @listing.add_availability(date: params[:available_night])
     redirect "/listings/availability/#{@listing.id}"
   end
 
   get "/listings" do
     @listings = Listing.all
-    p @listings
     erb :listings
   end
 
   get "/listings/view/:id" do
-    p params[:id]
     @listing = Listing.find(id: params[:id])
     erb :listings_view
-    # "#{@listing.title}"
   end
 
 end
