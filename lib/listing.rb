@@ -15,7 +15,6 @@ class Listing
   def self.create(title:, description:, price:)
     conn = connect_to_database
     result_listings = conn.exec("INSERT INTO listings (title, description, price) VALUES ('#{title}', '#{description}', '#{price}') RETURNING id, title, description, price;")
-    # result_available_nights = conn.exec("INSERT INTO available_nights (listing_id, date) VALUES ('#{result_listings[0]['id']}', '#{available_night}') RETURNING date;")
     Listing.new(id: result_listings[0]['id'], title: result_listings[0]['title'], description: result_listings[0]['description'], price: result_listings[0]['price'].to_i)
   end
 
