@@ -7,6 +7,6 @@ feature "Profile" do
   scenario "user can log out" do
     login
     click_button "Log out"
-    expect(page).to have_content "Welcome"
+    expect(page).to have_content "Login"
   end
 end

@@ -33,12 +33,18 @@ class AbodenB < Sinatra::Base
       redirect "/profile"
     else
       flash[:login_error] = "Please check your email or password"
+      redirect "/login"
     end
+  end
+
+  post "/logout" do
+    session.clear
+    redirect "/login"
   end
 
   get "/profile" do
     redirect "/login" if session[:user_id] == nil
-    @user = User.find(id: session[:user_id]) 
+    @user = User.find(id: session[:user_id])
     erb :profile
   end
 
@@ -56,9 +62,5 @@ class AbodenB < Sinatra::Base
   get "/listings" do
     @listings = Listing.all
     erb :listings
-  end
-  post "/logout" do
-    session.clear
-    redirect "/"
   end
 end
