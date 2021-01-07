@@ -1,12 +1,12 @@
 ENV["RACK_ENV"] = "test"
 
 require "setup_test_database"
-# require "../db_test_connection_helper"
+require_relative "../lib/db_test_connection_helper"
 
 require File.join(File.dirname(__FILE__), "..", "app.rb")
 
-require 'simplecov'
-require 'simplecov-console'
+require "simplecov"
+require "simplecov-console"
 require "capybara"
 require "capybara/rspec"
 require "rspec"
@@ -17,8 +17,8 @@ Capybara.app = AbodenB
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+# Want a nice code coverage website? Uncomment this next line!
+# SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
