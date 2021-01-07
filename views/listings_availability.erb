@@ -5,6 +5,10 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="/listings/availability/<%= @listing.id %>" method="post">
+      <input type="date" name="available_night">
+      <input type="submit" value="Add date">
+    </form>
     <form action="/listings" method="get">
       <input type="submit" value="Done">
     </form>

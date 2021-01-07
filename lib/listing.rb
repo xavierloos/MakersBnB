@@ -22,13 +22,19 @@ class Listing
   def self.all
     conn = connect_to_database
     result = conn.exec("SELECT * FROM listings")
-    result.map { |listing| Listing.new(id: listing['listing_id'], title: listing['title'], description: listing['description'], price: listing['price'].to_i)}
+    result.map { |listing| Listing.new(id: listing['id'], title: listing['title'], description: listing['description'], price: listing['price'].to_i)}
   end
 
   def self.find(id:)
     conn = connect_to_database
     result = conn.exec("SELECT * FROM listings WHERE listings.id = '#{id}';")
     Listing.new(title: result[0]['title'], description: result[0]['description'], price: result[0]['price'], id: result[0]['id'])
+  end
+
+  def add_availability(date:)
+    conn = connect_to_database
+    result = conn.exec("INSERT INTO dates (date) VALUES ('#{Date.parse(date).strftime("%Y%m%d").to_i}') RETURNING id")
+    conn.exec("INSERT INTO bookable_dates (listing_id, date_id) VALUES ('#{self.id}', '#{result[0]['id']}')")
   end
 
 end

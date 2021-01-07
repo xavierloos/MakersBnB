@@ -21,9 +21,10 @@ feature "new listing" do
 
   scenario "can add available dates" do
     add_listing1
-    select '01', from: 'day'
-    select 'January', from: 'month'
-    select '2021', from: 'year'
+    # select '01', from: 'day'
+    # select 'January', from: 'month'
+    # select '2021', from: 'year'
+    fill_in("available_night", with: "01/01/2021")
     click_button('Add date')
     click_button("Done")
     click_link("testtitle")
