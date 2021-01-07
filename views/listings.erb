@@ -1,8 +1,7 @@
 <ul>
   <% @listings.each do |listing| %>
     <li>
-      <%= listing.id %> <br>
-      <%= listing.title%> <br>
+    <a href="/listings/view/<%= listing.id %>">  <%= listing.title%> </a> <br>
       <%= listing.description%> <br>
       <%= listing.price%> <br>
     </li>
