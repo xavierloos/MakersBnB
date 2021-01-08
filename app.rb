@@ -46,6 +46,7 @@ class AbodenB < Sinatra::Base
   get "/profile/:id" do
     check_login
     @user = User.find(id: session[:user_id])
+    @my_requests = Booking.find_my_bookings(id: session[:user_id])
     erb :profile
   end
 
@@ -74,10 +75,6 @@ class AbodenB < Sinatra::Base
     check_login
     @listings = Listing.all
     erb :listings
-  end
-
-  get "/booking" do
-    erb(:booking)
   end
 
   get "/listings/view/:id" do

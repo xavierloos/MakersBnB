@@ -6,7 +6,15 @@
 </head>
 <body>
     <h1>Welcome <%= @user.username%></h1>
-    
+    <h2>Requests made</h2>
+    <ul>
+    <% @my_requests.each do |booking|%>
+      <li>
+        <% listing = Listing.find(id: booking.listing_id) %>
+          <%= listing.title %>, <%= booking.find_date %>, Request pending
+      </li>
+    <% end %>
+    </ul>
     <form action="/logout" method="post">
         <input type="submit" value="Log out" />
     </form>
