@@ -1,6 +1,6 @@
 feature "Profile" do
   scenario "a non-user cannot access to profile from typing the url" do
-    visit "/profile"
+    visit "/profile/:id"
     expect(page).to have_content "Login"
   end
 

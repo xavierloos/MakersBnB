@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/index_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/index_spec.rb": {
         "lines": [
           1,
           1,
@@ -12,85 +12,26 @@
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/listings_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/listings_spec.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/login_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/new_listing_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/profile_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/login_spec.rb": {
         "lines": [
           1,
           1,
@@ -103,10 +44,92 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/singup_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/new_listing_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/profile_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/request_booking_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/features/singup_spec.rb": {
         "lines": [
           1,
           1,
@@ -124,7 +147,7 @@
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/units/listing_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/units/listing_spec.rb": {
         "lines": [
           1,
           null,
@@ -193,7 +216,7 @@
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/units/user_spec.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/units/user_spec.rb": {
         "lines": [
           1,
           1,
@@ -233,7 +256,7 @@
           null
         ]
       },
-      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/db_helpers.rb": {
+      "/Users/jlr/Desktop/Makers/MakersBnB/spec/db_helpers.rb": {
         "lines": [
           1,
           1,
@@ -245,6 +268,6 @@
         ]
       }
     },
-    "timestamp": 1610043264
+    "timestamp": 1610106153
   }
 }
