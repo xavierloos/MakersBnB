@@ -1,5 +1,5 @@
 feature "Request" do
-  scenario "" do
+  scenario "allows user to make a request" do
     login
     add_listing1
     fill_in("available_night", with: "01/01/2021")
