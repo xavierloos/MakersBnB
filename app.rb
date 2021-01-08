@@ -1,6 +1,7 @@
 require "sinatra/base"
 require "sinatra/flash"
 require "./lib/user"
+require "./lib/booking"
 require "pg"
 
 require_relative "./lib/listing.rb"
@@ -83,6 +84,15 @@ class AbodenB < Sinatra::Base
     @user = User.find(id: session[:user_id])
     @listing = Listing.find(id: params[:id])
     erb :listings_view
+  end
+
+  post "/listings/book/:id" do
+    connection = connect_to_database
+    p params[:date]
+    date_id = connection.exec("SELECT id FROM dates WHERE date='#{params[:date]}';")
+    connection.close
+    Booking.create(date_id: date_id[0]['id'], listing_id: params[:listing_id], user_id: params[:id])
+    redirect("/profile/#{session[:user_id]}")
   end
 
   def check_login

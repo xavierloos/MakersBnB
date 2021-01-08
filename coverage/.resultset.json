@@ -1,10 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/cahallavelle/Desktop/Projects/MakersBnB/spec/units/booking_spec.rb": {
+      "/Users/whelliwell1/Dropbox/projects/makers/week-5/MakersBnB/spec/features/request_booking_spec.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
           1,
@@ -12,39 +11,20 @@
           1,
           1,
           1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/cahallavelle/Desktop/Projects/MakersBnB/lib/booking.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
           1,
           1,
           1,
           1,
           1,
           null,
-          null,
           1,
           1,
-          1,
-          1,
-          1,
-          null,
+          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1610108918
+    "timestamp": 1610116295
   }
 }
