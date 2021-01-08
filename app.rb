@@ -47,6 +47,7 @@ class AbodenB < Sinatra::Base
     check_login
     @user = User.find(id: session[:user_id])
     @my_requests = Booking.find_my_bookings(id: session[:user_id])
+    @received_requests = Booking.find_incoming_bookings(id: session[:user_id])
     erb :profile
   end
 
@@ -56,7 +57,7 @@ class AbodenB < Sinatra::Base
   end
 
   post "/listings/new" do
-    new_listing = Listing.create(title: params["title"], description: params["description"], price: params["price"])
+    new_listing = Listing.create(user_id: session[:user_id], title: params["title"], description: params["description"], price: params["price"])
     redirect "/listings/availability/#{new_listing.id}"
   end
 

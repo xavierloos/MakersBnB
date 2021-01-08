@@ -2,32 +2,33 @@ require "pg"
 require_relative "./db_test_connection_helper.rb"
 
 class Listing
-  attr_reader :id, :title, :description, :price
+  attr_reader :id, :title, :description, :price, :user_id
 
-  def initialize(id:, title:, description:, price:)
+  def initialize(id:, title:, description:, price:, user_id:)
     @id = id
     @title = title
     @description = description
     @price = price
+    @user_id = user_id
   end
 
-  def self.create(title:, description:, price:)
+  def self.create(title:, description:, price:, user_id:)
     conn = connect_to_database
-    result_listings = conn.exec("INSERT INTO listings (title, description, price) VALUES ('#{title}', '#{description}', '#{price}') RETURNING id, title, description, price;")
+    result_listings = conn.exec("INSERT INTO listings (title, description, price, user_id) VALUES ('#{title}', '#{description}', '#{price}', '#{user_id}') RETURNING id, title, description, price, user_id;")
     conn.close
-    Listing.new(id: result_listings[0]["id"], title: result_listings[0]["title"], description: result_listings[0]["description"], price: result_listings[0]["price"].to_i)
+    Listing.new(id: result_listings[0]["id"], title: result_listings[0]["title"], description: result_listings[0]["description"], price: result_listings[0]["price"].to_i, user_id: result_listings[0]["user_id"])
   end
 
   def self.all
     conn = connect_to_database
     result = conn.exec("SELECT * FROM listings")
-    result.map { |listing| Listing.new(id: listing["id"], title: listing["title"], description: listing["description"], price: listing["price"].to_i) }
+    result.map { |listing| Listing.new(user_id: listing["user_id"], id: listing["id"], title: listing["title"], description: listing["description"], price: listing["price"].to_i) }
   end
 
   def self.find(id:)
     conn = connect_to_database
     result = conn.exec("SELECT * FROM listings WHERE listings.id = '#{id}';")
-    Listing.new(title: result[0]["title"], description: result[0]["description"], price: result[0]["price"], id: result[0]["id"])
+    Listing.new(user_id: result[0]["user_id"], title: result[0]["title"], description: result[0]["description"], price: result[0]["price"], id: result[0]["id"])
   end
 
   def available_nights

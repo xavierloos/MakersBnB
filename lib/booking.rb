@@ -29,6 +29,15 @@ class Booking
     end
   end
 
+  def self.find_incoming_bookings(id:)
+    conn = connect_to_database
+    result = conn.exec("SELECT bookings.id AS bookings_id, date_id, listing_id, bookings.user_id FROM bookings JOIN listings ON listings.id = bookings.listing_id WHERE listings.user_id = '#{id}';")
+    conn.close
+    result.map do |booking|
+      Booking.new(id: booking["bookings_id"], date_id: booking["date_id"], listing_id: booking["listing_id"], user_id: booking["user_id"])
+    end
+  end
+
   def find_date
     conn = connect_to_database
     result = conn.exec("SELECT * FROM dates WHERE id = '#{self.id}';")

@@ -14,6 +14,15 @@
           <%= listing.title %>, <%= booking.find_date %>, Request pending
       </li>
     <% end %>
+    </ul><br><br>
+    <h2>Requests I have received</h2>
+    <ul>
+    <% @received_requests.each do |booking|%>
+      <li>
+        <% listing = Listing.find(id: booking.listing_id) %>
+          <%= listing.title %>, <%= booking.find_date %>, Request pending
+      </li>
+    <% end %>
     </ul>
     <form action="/logout" method="post">
         <input type="submit" value="Log out" />
