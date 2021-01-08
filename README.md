@@ -113,3 +113,13 @@ I can make a request for a day with a 'pending' request
 | id (serial primary key) | foreign key listing_id   | foreign key user_id   | date       |
 | ----------------------- | ------------------------ | --------------------  | -----------|
 | 1                       | 1                        | 2                     | 10/01/2020 |
+
+### dates
+| id (serial primary key) | date                     |
+| ----------------------- | ------------------------ |
+| 1                       | 2021                     |
+
+### bookable_dates
+| id (serial primary key) | foreign key listing_id (integer)  | foreign key date_id  (integer) |
+| ----------------------- | ------------------------ | --------------------  |
+| 1                       | 1                        | 2                     |

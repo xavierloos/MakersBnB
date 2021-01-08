@@ -8,8 +8,13 @@
   <h1> <%= @listing.title %> </h1><br>
   <ul>
     <% @listing.available_nights.each do |night| %>
-    <li>
+    <li class="booking_item" >
       <%= Date.parse(night).strftime("%m/%d/%Y") %>
+      <form action="/listings/book/<%= @user.id %>" method="post">
+        <input type="submit" value="Request to book"/>
+        <input type="hidden" name="listing_id" value="<%=@listing.id%>"/>
+        <input type="hidden" name="date" value="<%=night%>"/>
+      </form>
     </li>
     <% end %>
   </ul>

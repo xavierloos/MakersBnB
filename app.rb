@@ -1,6 +1,7 @@
 require "sinatra/base"
 require "sinatra/flash"
 require "./lib/user"
+require "./lib/booking"
 require "pg"
 
 require_relative "./lib/listing.rb"
@@ -30,7 +31,7 @@ class AbodenB < Sinatra::Base
     user = User.authentificate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect "/profile"
+      redirect "/profile/#{session[:user_id]}"
     else
       flash[:login_error] = "Please check your email or password"
       redirect "/login"
@@ -42,7 +43,7 @@ class AbodenB < Sinatra::Base
     redirect "/login"
   end
 
-  get "/profile" do
+  get "/profile/:id" do
     check_login
     @user = User.find(id: session[:user_id])
     erb :profile
@@ -54,7 +55,7 @@ class AbodenB < Sinatra::Base
   end
 
   post "/listings/new" do
-    new_listing = Listing.create(title: params['title'], description: params['description'], price: params['price'])
+    new_listing = Listing.create(title: params["title"], description: params["description"], price: params["price"])
     redirect "/listings/availability/#{new_listing.id}"
   end
 
@@ -80,12 +81,21 @@ class AbodenB < Sinatra::Base
   end
 
   get "/listings/view/:id" do
+    @user = User.find(id: session[:user_id])
     @listing = Listing.find(id: params[:id])
     erb :listings_view
   end
-  
+
+  post "/listings/book/:id" do
+    connection = connect_to_database
+    p params[:date]
+    date_id = connection.exec("SELECT id FROM dates WHERE date='#{params[:date]}';")
+    connection.close
+    Booking.create(date_id: date_id[0]['id'], listing_id: params[:listing_id], user_id: params[:id])
+    redirect("/profile/#{session[:user_id]}")
+  end
+
   def check_login
     redirect "/login" if session[:user_id] == nil #check if there is an user
   end
-  
 end

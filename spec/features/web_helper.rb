@@ -37,3 +37,11 @@ def login
   fill_in "password", with: "test"
   click_button "Enter"
 end
+
+def other_login
+  visit "/login"
+  User.create(username: "test", email: "test2@test.com", password: "test2")
+  fill_in "email", with: "test2@test.com"
+  fill_in "password", with: "test2"
+  click_button "Enter"
+end
